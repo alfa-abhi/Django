@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>BLOG_IT</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" media="all">
+<link rel="stylesheet" type="text/css" href="{% static 'media-queries.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'mediaelementplayer.css' %}"/>
+<link rel="stylesheet" type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300italic,300,700,700italic|Open+Sans+Condensed:300,700'>
+<script src="{% static "jquery-1.7.2.min.js" %}"></script>
+<script src="{% static "ddsmoothmenu.js" %}"></script>
+<script src="{% static "retina.js" %}"></script>
+<script src="{% static "selectnav.js" %}"></script>
+<script src="{% static "jquery.masonry.min.js" %}"></script>
+<script src="{% static "jquery.fitvids.js" %}"></script>
+<script src="{% static "jquery.backstretch.min.js" %}"></script>
+<script src="{% static "mediaelement.min.js" %}"></script>
+<script src="{% static "mediaelementplayer.min.js" %}"></script>
+<script src="{% static "jquery.dcflickr.1.0.js" %}"></script>
+<script src="{% static "twitter.min.js" %}"></script>
+<script>$.backstretch("{% static "1.jpg" %}");</script>
+</head>
+<body class="single">
+<div class="scanlines"></div>
+<div class="header-wrapper opacity">
+  <div class="header">
+    <div class="logo"> <a href="{% url 'index' %}"> <img src="{% static 'logo.png' %}" alt=""> </a> </div>
+    <div id="menu-wrapper">
+      <div id="menu" class="menu">
+        <ul id="tiny">
+          <li class="active"><a href="{% url 'index' %}">Blog</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="intro">I never think of the future, it comes soon enough. - Albert Einstein </div>
+    <br>
+    <br>
+    <div class="tapp">
+    <h3 align="center">Login</h3>
+    <form action="post.html/" method="post" id="login">
+        {% csrf_token %}
+        {{ Form.as_p }}
+        <p align="center">
+        Username:<br>
+        <input type="text" name="username">
+        <br>
+        Password:<br>
+        <input type="password" name="psw">
+        </p>
+    </form>
+    </div>
+    <p align="center">
+        <button type="submit" form="login" id="subs">LOGIN</button>
+    </p>
+    {% if error %}
+        <p> The Username or Password you entered is incorrect.</p>
+    {% endif %}
+</div>
+<div class="footer-wrapper">
+  <div id="footer" class="four">
+    <div id="first" class="widget-area">
+      <div class="widget widget_search">
+        <h3 class="widget-title">Search</h3>
+        <form class="searchform" method="get" action="#">
+          <input type="text" name="s" value="type and hit enter" onFocus="this.value=''" onBlur="this.value='type and hit enter'"/>
+        </form>
+      </div>
+    </div>
+    <div id="second" class="widget-area">
+      <div id="twitter-2" class="widget widget_twitter">
+        <h3 class="widget-title">Facebook</h3>
+        <div id="twitter-wrapper">
+          <div id="twitter"></div>
+          <span class="username"><a href="https://www.facebook.com/settings.imrf.17">&rarr; Abhinav_Chauhan</a></span> </div>
+          <br>
+          <h3 class="widget-title">Instagram</h3>
+          <span class="username"><a href="https://www.instagram.com/tendo_abhi/">&rarr; @tendo_abhi</a></span>
+      </div>
+    </div>
+    <div id="fourth" class="widget-area">
+      <div class="widget">
+        <h3 class="widget-title">Flickr</h3>
+        <ul class="flickr-feed">
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="{% static "scripts.js" %}"></script>
+</body>
+</html>

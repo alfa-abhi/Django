@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>BLOG_IT</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" media="all">
+<link rel="stylesheet" type="text/css" href="{% static 'media-queries.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'mediaelementplayer.css' %}"/>
+<link rel="stylesheet" type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300italic,300,700,700italic|Open+Sans+Condensed:300,700'>
+<script src="{% static "jquery-1.7.2.min.js" %}"></script>
+<script src="{% static "ddsmoothmenu.js" %}"></script>
+<script src="{% static "retina.js" %}"></script>
+<script src="{% static "selectnav.js" %}"></script>
+<script src="{% static "jquery.masonry.min.js" %}"></script>
+<script src="{% static "jquery.fitvids.js" %}"></script>
+<script src="{% static "jquery.backstretch.min.js" %}"></script>
+<script src="{% static "mediaelement.min.js" %}"></script>
+<script src="{% static "mediaelementplayer.min.js" %}"></script>
+<script src="{% static "jquery.dcflickr.1.0.js" %}"></script>
+<script src="{% static "twitter.min.js" %}"></script>
+<script>$.backstretch("{% static "1.jpg" %}");</script>
+</head>
+<body>
+<div class="scanlines"></div>
+<div class="header-wrapper opacity">
+  <div class="header">
+    <div class="logo"> <a href="{% url 'index' %}"> <img src="{% static 'logo.png' %}" alt=""> </a> </div>
+    <div id="menu-wrapper">
+      <div id="menu" class="menu">
+        <ul id="tiny">
+          <li><a href="{% url 'index' %}">Blog</a></li>
+          <li class="active"><a href="{% url 'contact'%}">Contact</a></li>
+          <li><a href="{% url 'sepost'%}">Login</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="intro">The best way to predict the future is to design it. - Buckminster Fuller</div>
+  <div class="content box">
+    <h1 class="title">Contact</h1>
+    <div class="map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d7004.798315411889!2d77.30308947750855!3d28.617796690039825!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1455526860638" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+    <h3>How to contact me.</h3>
+      {% if receive %}
+        <p>
+            Your Message has been successfully sent.
+        </p>
+      {% endif %}
+    <div class="form-container">
+      <form class="forms" action="message" method="post" id="mess">
+          {% csrf_token %}
+          {{ Form.as_p }}
+        <fieldset>
+          <ol>
+            <li class="form-row text-input-row">
+              <label>Name</label>
+              <input type="text" name="name" value="" class="text-input required">
+            </li>
+            <li class="form-row text-input-row">
+              <label>Email</label>
+              <input type="text" name="email" value="" class="text-input required email">
+            </li>
+            <li class="form-row text-input-row">
+              <label>Message</label>
+              <input type="text" name="subject" value="" class="text-input required">
+            </li>
+          </ol>
+        </fieldset>
+      </form>
+      <p align="center">
+        <button type="submit" form="mess" id="subs">Submit</button>
+      </p>
+    </div>
+  </div>
+  <div class="sidebar box">
+    <div class="sidebox widget">
+      <h3 class="widget-title">Where I am?</h3>
+      <p>Somewhere on Planet Earth</p>
+      <p>
+        <span class="lite1">Tel:</span> 011 XXXX-XXXX<br>
+        <span class="lite1">E-mail:</span> alfa.abhi1996@gmail.com </p>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+<div class="footer-wrapper">
+  <div id="footer" class="four">
+    <div id="first" class="widget-area">
+      <div class="widget widget_search">
+        <h3 class="widget-title">Search</h3>
+        <form class="searchform" method="get" action="#">
+          <input type="text" name="s" value="type and hit enter" onFocus="this.value=''" onBlur="this.value='type and hit enter'"/>
+        </form>
+      </div>
+    </div>
+    <div id="second" class="widget-area">
+      <div id="twitter-2" class="widget widget_twitter">
+        <h3 class="widget-title">Facebook</h3>
+        <div id="twitter-wrapper">
+          <div id="twitter"></div>
+          <span class="username"><a href="https://www.facebook.com/settings.imrf.17">&rarr; Abhinav_Chauhan</a></span> </div>
+          <br>
+          <h3 class="widget-title">Instagram</h3>
+          <span class="username"><a href="https://www.instagram.com/tendo_abhi/">&rarr; @tendo_abhi</a></span>
+      </div>
+    </div>
+    <div id="fourth" class="widget-area">
+      <div class="widget">
+        <h3 class="widget-title">Flickr</h3>
+        <ul class="flickr-feed">
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="{% static "scripts.js" %}"></script>
+</body>
+</html>
